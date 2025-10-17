@@ -34,6 +34,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
     implementation("io.r2dbc:r2dbc-h2")
     implementation "org.mapstruct:mapstruct:${mapstruct_version}"
+    implementation "org.springframework.boot:spring-boot-starter-validation:3.4.10"
 	runtimeOnly 'com.h2database:h2'
     compileOnly "org.projectlombok:lombok:${lombok_version}"
     annotationProcessor "org.projectlombok:lombok:${lombok_version}"

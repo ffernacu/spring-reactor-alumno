@@ -20,7 +20,7 @@ public class AlumnoServiceAdapter implements AlumnoServicePort {
     }
 
     @Override
-    public Flux<Alumno> list() {
-        return alumnoRepositoryPort.findAll();
+    public Flux<Alumno> findAllByStatus(String status) {
+        return alumnoRepositoryPort.findAllByStatus(status);
     }
 }

@@ -1,8 +1,16 @@
-package pe.ffernacu.spring_reactor_student.infrastructure.adapter.in.dto;
+package pe.ffernacu.spring_reactor_student.domain.model;
 
-public enum EstadoDTO {
+import java.util.Arrays;
+
+public enum Estado {
     ACTIVO,
     INACTIVO;
 
-    public static
+    public static Estado validarEstado(String estado){
+        return Arrays.stream(Estado.values())
+                .filter(e -> e.name().equals(estado))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("El estado " + estado + " es desconocido"));
+    }
+
 }

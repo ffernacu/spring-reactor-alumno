@@ -26,7 +26,7 @@ public class AlumnoRepositoryAdapter implements AlumnoRepositoryPort {
                 .hasElement()
                 .flatMap(e -> {
                     if(e) {
-                        return Mono.error(new AlumnoFoundException("Error de registro causado por el ID " + id + " repetido" ));
+                        return Mono.error(new AlumnoFoundException("Error de registro causado porque el id " + id + " es repetido" ));
                     }
                     else {
                         alumnoEntity.setId(id);
@@ -38,14 +38,14 @@ public class AlumnoRepositoryAdapter implements AlumnoRepositoryPort {
     }
 
     @Override
-    public Flux<Alumno> findAll() {
-        return alumnoRepository.findAll()
+    public Mono<Alumno> findById(String id) {
+        return alumnoRepository.findById(id)
                 .map(alumnoMapper::mapToModel);
     }
 
     @Override
-    public Mono<Alumno> findById(String id) {
-        return alumnoRepository.findById(id)
+    public Flux<Alumno> findAllByStatus(String status) {
+        return alumnoRepository.findAllByEstado(status)
                 .map(alumnoMapper::mapToModel);
     }
 

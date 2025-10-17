@@ -6,6 +6,6 @@ import reactor.core.publisher.Mono;
 
 public interface AlumnoRepositoryPort {
     Mono<Alumno> save(Alumno alumno, String id);
-    Flux<Alumno> findAll();
+    Flux<Alumno> findAllByStatus(String status);
     Mono<Alumno> findById(String id);
 }

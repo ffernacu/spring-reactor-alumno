@@ -39,8 +39,9 @@ public class WebExceptionHandler extends AbstractErrorWebExceptionHandler {
     private Mono<ServerResponse> renderErrorResponse(ServerRequest req) {
         Map<String, Object> defaultError = getErrorAttributes(req, ErrorAttributeOptions.defaults());
 
-        Throwable ex = getError(req);
         int statusCode = Integer.parseInt(String.valueOf(defaultError.get("status")));
+
+        Throwable ex = getError(req);
 
         CustomErrorResponse customErrorResponse = new CustomErrorResponse(LocalDateTime.now(), ex.getMessage());
 

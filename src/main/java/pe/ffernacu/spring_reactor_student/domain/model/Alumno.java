@@ -7,6 +7,6 @@ public class Alumno {
     private String id;
     private String nombre;
     private String apellido;
-    private String estado;
+    private Estado estado;
     private Integer edad;
 }

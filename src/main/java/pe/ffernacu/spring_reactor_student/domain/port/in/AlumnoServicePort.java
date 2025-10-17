@@ -6,5 +6,5 @@ import reactor.core.publisher.Mono;
 
 public interface AlumnoServicePort {
     Mono<Alumno> create(Alumno alumno, String id);
-    Flux<Alumno> list();
+    Flux<Alumno> findAllByStatus(String field);
 }
