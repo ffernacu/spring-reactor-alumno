@@ -1,4 +1,4 @@
-package pe.ffernacu.spring_reactor_alumno.infrastructure.adapter.output.entity;
+package pe.ffernacu.spring_reactor_alumno.infrastructure.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

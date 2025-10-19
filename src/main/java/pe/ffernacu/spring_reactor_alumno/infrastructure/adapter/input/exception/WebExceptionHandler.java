@@ -1,4 +1,4 @@
-package pe.ffernacu.spring_reactor_alumno.infrastructure.exception;
+package pe.ffernacu.spring_reactor_alumno.infrastructure.adapter.input.exception;
 
 import org.springframework.boot.autoconfigure.web.WebProperties;
 import org.springframework.boot.autoconfigure.web.reactive.error.AbstractErrorWebExceptionHandler;

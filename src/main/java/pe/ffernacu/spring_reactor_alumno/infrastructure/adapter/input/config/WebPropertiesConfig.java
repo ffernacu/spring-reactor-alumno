@@ -1,4 +1,4 @@
-package pe.ffernacu.spring_reactor_alumno.infrastructure.config;
+package pe.ffernacu.spring_reactor_alumno.infrastructure.adapter.input.config;
 
 import org.springframework.boot.autoconfigure.web.WebProperties;
 import org.springframework.context.annotation.Bean;

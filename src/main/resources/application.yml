@@ -1,4 +1,13 @@
-spring.application.name=spring-reactor-student
-spring.r2dbc.url=r2dbc:h2:mem:///testdb?options=DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-#spring.r2dbc.username=sa
-#spring.r2dbc.password=
+spring:
+  application:
+    name: spring-reactor-alumno
+  r2dbc:
+    url: ${R2DBC_URL}
+  config:
+    import: optional:file:.env[.properties]
+app:
+  routes:
+    alumno:
+      save-path: ${ALUMNO_SAVE_PATH}
+      filter-path: ${ALUMNO_FILTER_PATH}
+

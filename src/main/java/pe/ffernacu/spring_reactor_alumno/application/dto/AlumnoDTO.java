@@ -1,4 +1,4 @@
-package pe.ffernacu.spring_reactor_alumno.infrastructure.dto;
+package pe.ffernacu.spring_reactor_alumno.application.dto;
 
 import jakarta.validation.constraints.*;
 import lombok.Data;
@@ -22,6 +22,6 @@ public class AlumnoDTO {
 
     @NotNull
     @Min(0)
-    @Max(120)
+    @Max(100)
     private Integer edad;
 }

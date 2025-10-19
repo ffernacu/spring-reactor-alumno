@@ -1,10 +1,10 @@
-package pe.ffernacu.spring_reactor_student.domain.port.in;
+package pe.ffernacu.spring_reactor_alumno.domain.port.in;
 
-import pe.ffernacu.spring_reactor_student.domain.model.Alumno;
+import pe.ffernacu.spring_reactor_alumno.application.dto.AlumnoDTO;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface AlumnoServicePort {
-    Mono<Alumno> create(Alumno alumno);
-    Flux<Alumno> findAllByStatus(String field);
+    Mono<AlumnoDTO> create(AlumnoDTO alumnoDTO);
+    Flux<AlumnoDTO> filter(String status);
 }

@@ -1,4 +1,4 @@
-package pe.ffernacu.spring_reactor_student.domain.model;
+package pe.ffernacu.spring_reactor_alumno.domain.model;
 
 import java.util.Arrays;
 

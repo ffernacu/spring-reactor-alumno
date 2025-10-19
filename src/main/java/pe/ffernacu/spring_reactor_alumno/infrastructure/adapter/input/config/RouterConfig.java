@@ -1,4 +1,4 @@
-package pe.ffernacu.spring_reactor_alumno.infrastructure.config;
+package pe.ffernacu.spring_reactor_alumno.infrastructure.adapter.input.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -18,11 +18,11 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 public class RouterConfig {
 
     private String savePath;
-    private String filterByStatusPath;
+    private String filterPath;
 
     @Bean
     public RouterFunction<ServerResponse> routesAlumno(AlumnoApiHandler alumnoHandler){
         return route(POST(savePath), alumnoHandler::save)
-                .andRoute(GET(filterByStatusPath), alumnoHandler::filterByStatus);
+                .andRoute(GET(filterPath), alumnoHandler::filter);
     }
 }

@@ -1,4 +1,4 @@
-package pe.ffernacu.spring_reactor_student.domain.model.exception;
+package pe.ffernacu.spring_reactor_alumno.domain.model.exception;
 
 public class AlumnoFoundException extends RuntimeException {
 
