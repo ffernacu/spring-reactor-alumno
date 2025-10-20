@@ -1,4 +1,4 @@
-package pe.ffernacu.spring_reactor_alumno.application.dto;
+package pe.ffernacu.spring_reactor_alumno.infrastructure.dto;
 
 import jakarta.validation.constraints.*;
 import lombok.Data;
