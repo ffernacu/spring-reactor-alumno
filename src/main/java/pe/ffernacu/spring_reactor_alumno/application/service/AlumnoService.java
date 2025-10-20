@@ -5,8 +5,8 @@ import org.springframework.stereotype.Service;
 import pe.ffernacu.spring_reactor_alumno.domain.model.Alumno;
 import pe.ffernacu.spring_reactor_alumno.domain.model.Estado;
 import pe.ffernacu.spring_reactor_alumno.domain.exception.AlumnoFoundException;
-import pe.ffernacu.spring_reactor_alumno.application.port.in.AlumnoServicePort;
-import pe.ffernacu.spring_reactor_alumno.application.port.out.AlumnoRepositoryPort;
+import pe.ffernacu.spring_reactor_alumno.application.port.input.AlumnoServicePort;
+import pe.ffernacu.spring_reactor_alumno.application.port.output.AlumnoRepositoryPort;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -18,6 +18,7 @@ public class AlumnoService implements AlumnoServicePort {
 
     @Override
     public Mono<Alumno> create(Alumno alumno) {
+        alumno.validarNombre(alumno.getNombre());
         return alumnoRepositoryPort.findById(alumno.getId())
                 .hasElement()
                 .flatMap( e -> {

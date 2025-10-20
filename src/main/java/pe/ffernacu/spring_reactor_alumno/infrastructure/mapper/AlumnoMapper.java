@@ -2,9 +2,9 @@ package pe.ffernacu.spring_reactor_alumno.infrastructure.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import pe.ffernacu.spring_reactor_alumno.application.dto.AlumnoDTO;
+import pe.ffernacu.spring_reactor_alumno.infrastructure.adapter.input.dto.AlumnoDTO;
 import pe.ffernacu.spring_reactor_alumno.domain.model.Alumno;
-import pe.ffernacu.spring_reactor_alumno.infrastructure.entity.AlumnoEntity;
+import pe.ffernacu.spring_reactor_alumno.infrastructure.adapter.output.entity.AlumnoEntity;
 
 @Mapper(componentModel = "spring")
 public interface AlumnoMapper {

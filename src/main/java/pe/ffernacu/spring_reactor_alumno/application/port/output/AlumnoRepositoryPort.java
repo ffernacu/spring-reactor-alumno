@@ -1,4 +1,4 @@
-package pe.ffernacu.spring_reactor_alumno.application.port.out;
+package pe.ffernacu.spring_reactor_alumno.application.port.output;
 
 import pe.ffernacu.spring_reactor_alumno.domain.model.Alumno;
 import reactor.core.publisher.Flux;

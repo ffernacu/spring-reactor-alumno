@@ -1,4 +1,4 @@
-package pe.ffernacu.spring_reactor_alumno.application.validator;
+package pe.ffernacu.spring_reactor_alumno.infrastructure.validator;
 
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
