@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class WebPropertiesConfig {
+
     @Bean
     public WebProperties.Resources resources(){
         return new WebProperties.Resources();

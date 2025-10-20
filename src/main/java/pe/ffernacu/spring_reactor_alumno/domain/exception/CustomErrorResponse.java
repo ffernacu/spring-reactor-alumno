@@ -1,4 +1,4 @@
-package pe.ffernacu.spring_reactor_alumno.domain.model.exception;
+package pe.ffernacu.spring_reactor_alumno.domain.exception;
 
 import java.time.LocalDateTime;
 

@@ -12,5 +12,4 @@ public enum Estado {
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("El estado " + estado + " es desconocido"));
     }
-
 }
