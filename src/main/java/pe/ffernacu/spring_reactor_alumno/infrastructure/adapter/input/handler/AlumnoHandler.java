@@ -17,7 +17,7 @@ import java.net.URI;
 
 @Component
 @RequiredArgsConstructor
-public class AlumnoApiHandler {
+public class AlumnoHandler {
 
     private final AlumnoServicePort alumnoServicePort;
     private final AlumnoMapper alumnoMapper;

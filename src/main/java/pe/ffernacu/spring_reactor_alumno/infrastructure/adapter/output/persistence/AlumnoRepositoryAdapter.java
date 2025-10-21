@@ -5,7 +5,7 @@ import org.springframework.data.r2dbc.core.R2dbcEntityTemplate;
 import org.springframework.stereotype.Repository;
 import pe.ffernacu.spring_reactor_alumno.domain.model.Alumno;
 import pe.ffernacu.spring_reactor_alumno.application.port.output.AlumnoRepositoryPort;
-import pe.ffernacu.spring_reactor_alumno.infrastructure.adapter.output.api.AlumnoRepository;
+import pe.ffernacu.spring_reactor_alumno.infrastructure.adapter.output.persistence.repository.AlumnoRepository;
 import pe.ffernacu.spring_reactor_alumno.infrastructure.adapter.output.entity.AlumnoEntity;
 import pe.ffernacu.spring_reactor_alumno.infrastructure.mapper.AlumnoMapper;
 import reactor.core.publisher.Flux;

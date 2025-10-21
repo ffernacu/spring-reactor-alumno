@@ -11,7 +11,7 @@ public interface AlumnoMapper {
 
     AlumnoDTO mapToDto(Alumno alumno);
 
-    @Mapping(target = "estado", expression = "java(Estado.validarEstado(alumnoDTO.getEstado()))")
+    @Mapping(target = "estado", expression = "java(Alumno.validarEstado(alumnoDTO.getEstado()))")
     Alumno mapToModel(AlumnoDTO alumnoDTO);
 
     Alumno mapToModel(AlumnoEntity alumnoEntity);

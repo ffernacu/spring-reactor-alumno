@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.5.6'
 	id 'io.spring.dependency-management' version '1.1.7'
+    id 'jacoco'
 }
 
 group = 'pe.ffernacu'
@@ -42,6 +43,24 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    finalizedBy jacocoTestReport
+}
+jacocoTestReport {
+    dependsOn test
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+                    "pe/ffernacu/**/SpringReactorAlumnoApplication.class",
+                    "pe/ffernacu/**/RequestValidator.class",
+                    "pe/ffernacu/**/WebExceptionHandler.class",
+                    "pe/ffernacu/**/CustomErrorResponse.class",
+                    "**/mapper/*"
+            ])
+        }))
+    }
 }
 
 tasks.named('test') {

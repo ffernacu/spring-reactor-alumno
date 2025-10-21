@@ -2,6 +2,7 @@ package pe.ffernacu.spring_reactor_alumno.domain.model;
 
 import lombok.Data;
 
+import java.util.Arrays;
 import java.util.regex.Pattern;
 
 @Data
@@ -12,12 +13,22 @@ public class Alumno {
     private Estado estado;
     private Integer edad;
 
-    private Pattern NAME_PATTERN = Pattern.compile("^[\\p{L} .'-]+$");
+    public enum Estado {
+        ACTIVO,
+        INACTIVO
+    }
 
-    public void validarNombre(String name) {
-        if (!NAME_PATTERN.matcher(name).matches()) {
-            throw new IllegalArgumentException("El valor " + name + " contiene caracteres especiales no permitidos.");
+    public void validarNombre() {
+        Pattern NAME_PATTERN = Pattern.compile("^[\\p{L} .'-]+$");
+        if (!NAME_PATTERN.matcher(nombre).matches()) {
+            throw new IllegalArgumentException("El valor " + nombre + " contiene caracteres especiales no permitidos.");
         }
     }
 
+    public static Estado validarEstado(String status){
+        return Arrays.stream(Estado.values())
+                .filter(e -> e.name().equals(status))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("El estado " + status + " es desconocido"));
+    }
 }

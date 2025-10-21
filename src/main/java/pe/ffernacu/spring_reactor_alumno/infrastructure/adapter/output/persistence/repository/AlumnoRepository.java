@@ -1,4 +1,4 @@
-package pe.ffernacu.spring_reactor_alumno.infrastructure.adapter.output.api;
+package pe.ffernacu.spring_reactor_alumno.infrastructure.adapter.output.persistence.repository;
 
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import org.springframework.stereotype.Repository;
