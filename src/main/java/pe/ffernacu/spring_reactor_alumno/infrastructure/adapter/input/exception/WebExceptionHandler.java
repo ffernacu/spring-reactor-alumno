@@ -43,10 +43,19 @@ public class WebExceptionHandler extends AbstractErrorWebExceptionHandler {
 
         Throwable ex = getError(req);
 
-        CustomErrorResponse customErrorResponse = new CustomErrorResponse(LocalDateTime.now(), ex.getMessage());
+        CustomErrorResponse errorResponse;
+        switch (statusCode) {
+            case 400, 422 -> {
+                errorResponse = new CustomErrorResponse(LocalDateTime.now(), ex.getMessage());
+            }
+            case 404 -> errorResponse = new CustomErrorResponse(LocalDateTime.now(), "Not Found");
+            case 401, 403 -> errorResponse = new CustomErrorResponse(LocalDateTime.now(), "Not Authorized");
+            case 500 -> errorResponse = new CustomErrorResponse(LocalDateTime.now(), "Internal Server Error");
+            default -> errorResponse = new CustomErrorResponse(LocalDateTime.now(), ex.getMessage());
+        }
 
         return ServerResponse.status(statusCode)
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(BodyInserters.fromValue(customErrorResponse));
+                .body(BodyInserters.fromValue(errorResponse));
     }
 }
