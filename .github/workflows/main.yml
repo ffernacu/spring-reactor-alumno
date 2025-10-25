@@ -16,7 +16,7 @@ on:
 jobs:
   ci-cd-workflow:
     uses: ./.github/workflows/ci-cd.yml
-    with:
+    #with:
     # Puedes pasar parámetros si el ci-cd.yml los requiere
     # Por ejemplo: environment: 'production'
     secrets: inherit # Pasa automáticamente todos los secretos disponibles
