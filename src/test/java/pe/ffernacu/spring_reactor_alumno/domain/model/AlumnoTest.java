@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import pe.ffernacu.spring_reactor_alumno.domain.exception.AlumnoBadRequestException;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static pe.ffernacu.spring_reactor_alumno.domain.model.Alumno.validarEstado;
@@ -25,12 +26,13 @@ class AlumnoTest {
     @Test
     void validarNombre_error() {
 
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+        AlumnoBadRequestException exception = assertThrows(AlumnoBadRequestException.class, () -> {
             alumno.validarNombre();
         });
 
         String expectedMessage = "El valor " + alumno.getNombre() + " contiene caracteres especiales no permitidos.";
         assertEquals(expectedMessage, exception.getMessage());
+
     }
 
     @Test
@@ -38,7 +40,7 @@ class AlumnoTest {
 
         String status = "ACTIVE";
 
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+        AlumnoBadRequestException exception = assertThrows(AlumnoBadRequestException.class, () -> {
             validarEstado(status);
         });
 

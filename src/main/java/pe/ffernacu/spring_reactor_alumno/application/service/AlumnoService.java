@@ -3,7 +3,7 @@ package pe.ffernacu.spring_reactor_alumno.application.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pe.ffernacu.spring_reactor_alumno.domain.model.Alumno;
-import pe.ffernacu.spring_reactor_alumno.domain.exception.AlumnoFoundException;
+import pe.ffernacu.spring_reactor_alumno.domain.exception.AlumnoBadRequestException;
 import pe.ffernacu.spring_reactor_alumno.application.port.input.AlumnoServicePort;
 import pe.ffernacu.spring_reactor_alumno.application.port.output.AlumnoRepositoryPort;
 import reactor.core.publisher.Flux;
@@ -22,7 +22,7 @@ public class AlumnoService implements AlumnoServicePort {
                 .hasElement()
                 .flatMap( e -> {
                     if(e) {
-                        return Mono.error(new AlumnoFoundException("No se pudo hacer la grabación debido al id " + alumno.getId() + " es repetido" ));
+                        return Mono.error(new AlumnoBadRequestException("No se pudo hacer la grabación debido al id " + alumno.getId() + " es repetido" ));
                     }
                     else {
                         return alumnoRepositoryPort.save(alumno);

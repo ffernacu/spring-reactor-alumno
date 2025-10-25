@@ -1,8 +1,7 @@
 package pe.ffernacu.spring_reactor_alumno.domain.model;
 
 import lombok.Data;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.server.ResponseStatusException;
+import pe.ffernacu.spring_reactor_alumno.domain.exception.AlumnoBadRequestException;
 
 import java.util.Arrays;
 import java.util.regex.Pattern;
@@ -23,7 +22,7 @@ public class Alumno {
     public void validarNombre() {
         Pattern NAME_PATTERN = Pattern.compile("^[\\p{L} .'-]+$");
         if (!NAME_PATTERN.matcher(nombre).matches()) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El valor " + nombre + " contiene caracteres especiales no permitidos.");
+            throw new AlumnoBadRequestException("El valor " + nombre + " contiene caracteres especiales no permitidos.");
         }
     }
 
@@ -31,6 +30,6 @@ public class Alumno {
         return Arrays.stream(Estado.values())
                 .filter(e -> e.name().equals(status))
                 .findFirst()
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "El estado " + status + " es desconocido"));
+                .orElseThrow(() -> new AlumnoBadRequestException("El estado " + status + " es desconocido"));
     }
 }
