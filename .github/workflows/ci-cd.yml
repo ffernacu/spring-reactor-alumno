@@ -8,14 +8,13 @@ on:
   #   registry_password:
   #     required: true
 
-# Permisos para que el flujo de trabajo pueda publicar el paquete
-permissions:
-  contents: read
-  packages: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Permisos para que el flujo de trabajo pueda leer y compilar el repositorio
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout code
