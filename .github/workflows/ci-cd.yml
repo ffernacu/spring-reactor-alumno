@@ -1,0 +1,40 @@
+name: CI/CD Pipeline Spring Boot
+
+on:
+  workflow_call:
+  # Definir entradas y secretos si se quieren pasar de forma explícita
+  # Por ejemplo, si un secreto no puede ser heredado
+  # secrets:
+  #   registry_password:
+  #     required: true
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # Permisos para que el flujo de trabajo pueda leer y compilar el repositorio
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'gradle'
+      # Add this step to grant execute permission to gradlew
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build with Gradle
+        run: ./gradlew clean build
+
+      - name: Upload JAR as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-jar
+          path: build/libs/*.jar
