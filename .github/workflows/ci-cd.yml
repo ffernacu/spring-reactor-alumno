@@ -39,6 +39,13 @@ jobs:
           name: app-jar
           path: build/libs/*.jar
 
+  deploy:
+    runs-on: ubuntu-latest
+    # Permisos para que el flujo de trabajo pueda leer, escribir y compilar la imagen docker
+    permissions:
+      contents: write
+
+    steps:
       - name: Build & push Docker image
         uses: ffernacu/docker-build-push@v1
         with:
