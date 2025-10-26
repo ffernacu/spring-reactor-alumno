@@ -19,8 +19,8 @@ COPY src ./src
 RUN gradle bootJar --no-daemon
 
 # ========================= ETAPA DE EJECUCIÓN =========================
-# Utiliza una imagen ligera de OpenJDK 17 con JRE para el entorno de producción.
-FROM openjdk:17-jre-slim
+# Utiliza una imagen ligera de Eclipse Temurin 17 con JRE para el entorno de producción.
+FROM eclipse-temurin:17-jre-jammy
 
 # Establece el directorio de trabajo.
 WORKDIR /app
