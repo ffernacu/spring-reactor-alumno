@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     # Permisos para que el flujo de trabajo pueda leer, escribir y compilar la imagen docker
     permissions:
-      contents: write
+      contents: read
 
     steps:
       - name: Build & push Docker image
