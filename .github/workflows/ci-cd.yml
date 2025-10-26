@@ -38,3 +38,20 @@ jobs:
         with:
           name: app-jar
           path: build/libs/*.jar
+
+  deploy:
+    runs-on: ubuntu-latest
+    # Permisos para que el flujo de trabajo pueda leer, escribir y compilar la imagen docker
+    permissions:
+      contents: read
+
+    steps:
+      - name: Build & push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          image: ffernacu/spring-reactor-alumno-image
+          tags: latest
+          registry: docker.io
+          dockerfile: Dockerfile
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
