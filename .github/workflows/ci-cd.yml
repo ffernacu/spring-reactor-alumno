@@ -42,7 +42,7 @@ jobs:
       - name: Build & push Docker image
         uses: ffernacu/docker-build-push@v1
         with:
-          image: ffernacu/spring-reactor-alumno-cicd-image
+          image: ffernacu/spring-reactor-alumno-image
           tags: latest
           registry: docker.io
           dockerfile: Dockerfile
