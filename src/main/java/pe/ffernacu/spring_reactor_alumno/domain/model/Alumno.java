@@ -19,8 +19,9 @@ public class Alumno {
         INACTIVO
     }
 
+    private static Pattern NAME_PATTERN = Pattern.compile("^[\\p{L} .'-]+$");
+
     public void validarNombre() {
-        Pattern NAME_PATTERN = Pattern.compile("^[\\p{L} .'-]+$");
         if (!NAME_PATTERN.matcher(nombre).matches()) {
             throw new AlumnoBadRequestException("El valor " + nombre + " contiene caracteres especiales no permitidos.");
         }
